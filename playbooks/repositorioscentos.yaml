@@ -1,0 +1,4 @@
+- name: chamando role
+  hosts: automation
+  role:
+   - puppet 

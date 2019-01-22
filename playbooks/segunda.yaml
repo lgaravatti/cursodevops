@@ -1,0 +1,30 @@
+## Playbook Curso ##
+- name: Segunda Playbook
+## Maquinas para rodar a Playbook ##
+  hosts: docker devops
+### usando variaveis ####
+  vars:
+    username: null
+    pacote: null
+  tasks:
+   - name: adicionar user
+     user:
+      name: "{{ username }}"
+      shell: /bin/bash
+#### Nomear um modulo de uma task ###
+     register: condicao
+#### ignorar erros ###
+     ignore_errors: yes
+
+### Debugar o erro de um modulo ###
+#   - name: modulo debug
+#     debug:
+#      var: condicao
+
+   - name: Instalando o vim
+     apt:
+      name: "{{ pacote }}"
+#### Estado do pacote ######
+      state: present
+#####Condicao para executar ######
+     when: condicao.failed == false

@@ -1,0 +1,6 @@
+- name: copiando um arquivo com variavel
+  template:
+   src: templates/config.php
+   dest: /tmp/
+## Notify e uma variavel que a pasta handler verifica, servico e o nome da acao
+  notify: servico

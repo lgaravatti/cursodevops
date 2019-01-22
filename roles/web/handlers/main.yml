@@ -1,0 +1,7 @@
+---
+# handlers file for web
+- name: start_centos
+  service:
+   name: httpd
+   state: restarted
+  when: ansible_os_family == "RedHat"
